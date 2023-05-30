@@ -1,0 +1,25 @@
+names:
+- '0: 간장게장'
+- '1: 잡채'
+- '2: 계란말이'
+- '3: 계란찜'
+- '4: 김밥'
+- '5: 파전'
+- '6: 도토리묵'
+- '7: 두부김치'
+- '8: 떡볶이'
+- '9: 칼국수'
+- '10: 만두'
+- '11: 호박죽'
+- '12: 계란후라이'
+- '13: 삼겹살'
+- '14: 새우튀김'
+- '15: 양념치킨'
+- '16: 순대'
+- '17: 육회'
+- '18: 제육볶음'
+- '19: 짜장면'
+nc: '20'
+test: /content/drive/MyDrive/Capstone_design/data_set/test.txt
+train: /content/drive/MyDrive/Capstone_design/data_set/train.txt
+val: /content/drive/MyDrive/Capstone_design/data_set/val.txt
