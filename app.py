@@ -1,5 +1,4 @@
-from flask import Flask
-
+from flask import Flask, request
 import torch
 from PIL import Image
 
@@ -8,14 +7,15 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', 'best.pt', force_reload=T
 
 app = Flask(__name__)
 
-#음 나는 이게 맘에 안들어
 
+@app.route('/photo', methods=['POST'])
+def recognizePhoto():  # put application's code here
+    print(request.headers)
+    if 'file' not in request.files:
+        return 'No file found in request', 400
 
-@app.route('/xxx')
-def hello_world():  # put application's code here
-    # 이미지 파일 로드
-    image_path = '1686225993677_IMG_1077.jpg'
-    image = Image.open(image_path)
+    photo = request.files['file']
+    image = Image.open(photo)
 
     # 이미지 추론
     results = model(image)
@@ -32,17 +32,11 @@ def hello_world():  # put application's code here
     d = detections['name'].tolist()
     c = detections['class'].tolist()
 
-    for food in d:
-        print(food.split()[1])
-
+    result = []
     for cs in c:
-        print(cs)
+        result.append(int(cs))
 
-
-
-    return 'Hello World!'
-
-
+    return result, 200
 
 
 if __name__ == '__main__':
