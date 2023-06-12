@@ -8,6 +8,8 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', 'best.pt', force_reload=T
 
 app = Flask(__name__)
 
+#음 나는 이게 맘에 안들어
+
 
 @app.route('/xxx')
 def hello_world():  # put application's code here
